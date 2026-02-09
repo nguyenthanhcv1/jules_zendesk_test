@@ -1,6 +1,8 @@
 import { type NextRequest, NextResponse } from 'next/server'
 import { updateSession } from '@/lib/supabase/middleware'
 
+export const runtime = 'edge'
+
 export async function middleware(request: NextRequest) {
   // Update the session and get the user
   const { response, user } = await updateSession(request)
